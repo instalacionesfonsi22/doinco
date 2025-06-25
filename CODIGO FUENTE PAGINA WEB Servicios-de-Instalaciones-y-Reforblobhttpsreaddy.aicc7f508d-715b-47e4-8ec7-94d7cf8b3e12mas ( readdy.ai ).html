@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DOINCO.S & R - Servicios de Instalaciones y Reformas</title>
+<script src="https://cdn.tailwindcss.com/3.4.16"></script>
+<script>tailwind.config={theme:{extend:{colors:{primary:'#0047AB',secondary:'#FFD700'},borderRadius:{'none':'0px','sm':'4px',DEFAULT:'8px','md':'12px','lg':'16px','xl':'20px','2xl':'24px','3xl':'32px','full':'9999px','button':'8px'}}}}</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css">
+<style>
+:where([class^="ri-"])::before { content: "\f3c2"; }
+body {
+font-family: 'Montserrat', sans-serif;
+}
+.hexagon-bg {
+background-color: #0047AB;
+position: relative;
+overflow: hidden;
+}
+.hexagon-grid {
+position: absolute;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+background: linear-gradient(120deg, rgba(255,255,255,0.1) 25%, transparent 25%) 0 0,
+            linear-gradient(120deg, transparent 75%, rgba(255,255,255,0.1) 75%) 0 0,
+            linear-gradient(60deg, rgba(255,255,255,0.1) 25%, transparent 25%) 0 0,
+            linear-gradient(60deg, transparent 75%, rgba(255,255,255,0.1) 75%) 0 0;
+background-size: 60px 100px;
+animation: moveHexagons 30s linear infinite;
+}
+@keyframes moveHexagons {
+0% {
+    background-position: 0 0, 0 0, 0 0, 0 0;
+}
+100% {
+    background-position: 500px 500px, 500px 500px, 500px 500px, 500px 500px;
+}
+}
+.service-card:hover {
+transform: translateY(-5px);
+box-shadow: 0 10px 20px rgba(0, 71, 171, 0.2);
+}
+.contact-bar {
+background-color: rgba(255, 255, 255, 0.95);
+backdrop-filter: blur(5px);
+}
+input:focus {
+outline: none;
+border-color: #0047AB;
+}
+.btn-primary {
+background-color: #0047AB;
+color: white;
+transition: all 0.3s ease;
+}
+.btn-primary:hover {
+background-color: #003d91;
+}
+.btn-secondary {
+background-color: white;
+color: #0047AB;
+border: 2px solid #0047AB;
+transition: all 0.3s ease;
+}
+.btn-secondary:hover {
+background-color: #f0f7ff;
+}
+</style>
+</head>
+<body class="bg-gray-50">
+<!-- Header -->
+<header class="hexagon-bg relative overflow-hidden">
+<div class="hexagon-grid"></div>
+<div class="container mx-auto px-4 py-16 relative z-10">
+<div class="flex flex-col items-center justify-center mb-8">
+<h1 class="text-4xl md:text-6xl font-['Pacifico'] text-white mb-2 text-center">DOINCO.S & R</h1>
+<div class="h-1 w-24 bg-white rounded-full mb-6"></div>
+<h2 class="text-xl md:text-2xl text-white text-center font-light max-w-3xl">
+Soluciones profesionales para instalaciones, reformas y reparaciones en su hogar
+</h2>
+</div>
+<div class="flex flex-col md:flex-row items-center justify-center gap-4 mt-8">
+<a href="#contacto" class="btn-primary px-8 py-3 rounded-button font-medium text-lg whitespace-nowrap flex items-center">
+<i class="ri-phone-line mr-2"></i> Contactar ahora
+</a>
+<a href="#servicios" class="btn-secondary px-8 py-3 rounded-button font-medium text-lg whitespace-nowrap flex items-center">
+<i class="ri-tools-line mr-2"></i> Nuestros servicios
+</a>
+</div>
+<div class="absolute bottom-0 left-0 w-full">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 120" fill="#f9fafb">
+<path d="M0,64L80,69.3C160,75,320,85,480,80C640,75,800,53,960,48C1120,43,1280,53,1360,58.7L1440,64L1440,120L1360,120C1280,120,1120,120,960,120C800,120,640,120,480,120C320,120,160,120,80,120L0,120Z"></path>
+</svg>
+</div>
+</div>
+</header>
+<!-- Main Services Section -->
+<section id="servicios" class="py-16 bg-white">
+<div class="container mx-auto px-4">
+<div class="text-center mb-12">
+<h2 class="text-3xl font-bold text-gray-800 mb-4">Nuestros Servicios Principales</h2>
+<p class="text-gray-600 max-w-2xl mx-auto">Ofrecemos una amplia gama de servicios profesionales para el mantenimiento y mejora de su hogar o negocio.</p>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+<!-- Electricidad -->
+<div class="service-card bg-white rounded-lg shadow-md p-6 transition-all duration-300 border border-gray-100">
+<div class="w-16 h-16 bg-blue-50 rounded-full flex items-center justify-center mb-4 mx-auto">
+<i class="ri-flashlight-line text-primary ri-2x"></i>
+</div>
+<h3 class="text-xl font-semibold text-center mb-3">Electricidad</h3>
+<p class="text-gray-600 text-center">Instalaciones eléctricas, reparaciones, cuadros eléctricos y soluciones de iluminación para su hogar o negocio.</p>
+</div>
+<!-- Fontanería -->
+<div class="service-card bg-white rounded-lg shadow-md p-6 transition-all duration-300 border border-gray-100">
+<div class="w-16 h-16 bg-blue-50 rounded-full flex items-center justify-center mb-4 mx-auto">
+<i class="ri-drop-line text-primary ri-2x"></i>
+</div>
+<h3 class="text-xl font-semibold text-center mb-3">Fontanería</h3>
+<p class="text-gray-600 text-center">Reparación de tuberías, instalación de grifería, desatascos y todo tipo de trabajos de fontanería.</p>
+</div>
+<!-- Aire Acondicionado -->
+<div class="service-card bg-white rounded-lg shadow-md p-6 transition-all duration-300 border border-gray-100">
+<div class="w-16 h-16 bg-blue-50 rounded-full flex items-center justify-center mb-4 mx-auto">
+<i class="ri-temp-cold-line text-primary ri-2x"></i>
+</div>
+<h3 class="text-xl font-semibold text-center mb-3">Aire Acondicionado</h3>
+<p class="text-gray-600 text-center">Instalación, mantenimiento y reparación de sistemas de climatización para máximo confort.</p>
+</div>
+<!-- Gas -->
+<div class="service-card bg-white rounded-lg shadow-md p-6 transition-all duration-300 border border-gray-100">
+<div class="w-16 h-16 bg-blue-50 rounded-full flex items-center justify-center mb-4 mx-auto">
+<i class="ri-fire-line text-primary ri-2x"></i>
+</div>
+<h3 class="text-xl font-semibold text-center mb-3">Gas</h3>
+<p class="text-gray-600 text-center">Instalaciones y revisiones de gas, certificados y reparaciones con todas las garantías de seguridad.</p>
+</div>
+<!-- Albañilería -->
+<div class="service-card bg-white rounded-lg shadow-md p-6 transition-all duration-300 border border-gray-100">
+<div class="w-16 h-16 bg-blue-50 rounded-full flex items-center justify-center mb-4 mx-auto">
+<i class="ri-brick-wall-line text-primary ri-2x"></i>
+</div>
+<h3 class="text-xl font-semibold text-center mb-3">Albañilería</h3>
+<p class="text-gray-600 text-center">Todo tipo de trabajos de albañilería, desde pequeñas reparaciones hasta reformas integrales.</p>
+</div>
+<!-- Reformas de Baños -->
+<div class="service-card bg-white rounded-lg shadow-md p-6 transition-all duration-300 border border-gray-100">
+<div class="w-16 h-16 bg-blue-50 rounded-full flex items-center justify-center mb-4 mx-auto">
+<i class="ri-shower-line text-primary ri-2x"></i>
+</div>
+<h3 class="text-xl font-semibold text-center mb-3">Reformas de Baños</h3>
+<p class="text-gray-600 text-center">Especialistas en sustitución de bañeras por platos de ducha y reformas completas de baños.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Specialized Services Section -->
+<section class="py-16 bg-gray-50">
+<div class="container mx-auto px-4">
+<div class="text-center mb-12">
+<h2 class="text-3xl font-bold text-gray-800 mb-4">Servicios Especializados</h2>
+<p class="text-gray-600 max-w-2xl mx-auto">Soluciones a medida para necesidades específicas con la máxima calidad y profesionalidad.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<!-- Reparaciones de Siniestros -->
+<div class="bg-white rounded-lg shadow-md overflow-hidden">
+<div class="h-48 bg-primary flex items-center justify-center">
+<i class="ri-home-heart-line text-white ri-4x"></i>
+</div>
+<div class="p-6">
+<div class="inline-block px-3 py-1 bg-blue-100 text-primary text-sm font-medium rounded-full mb-4">Especialistas</div>
+<h3 class="text-xl font-bold mb-3">Reparaciones de Siniestros</h3>
+<p class="text-gray-600 mb-4">Especialistas en reparaciones de siniestros en el hogar cubiertos por su aseguradora. Gestionamos todo el proceso.</p>
+<a href="#contacto" class="text-primary font-medium flex items-center">
+Consultar <i class="ri-arrow-right-line ml-1"></i>
+</a>
+</div>
+</div>
+<!-- Urgencias 24/7 -->
+<div class="bg-white rounded-lg shadow-md overflow-hidden">
+<div class="h-48 bg-primary flex items-center justify-center">
+<i class="ri-time-line text-white ri-4x"></i>
+</div>
+<div class="p-6">
+<div class="inline-block px-3 py-1 bg-red-100 text-red-600 text-sm font-medium rounded-full mb-4">Disponible 24/7</div>
+<h3 class="text-xl font-bold mb-3">Servicio de Urgencias</h3>
+<p class="text-gray-600 mb-4">Disponibles las 24 horas, los 7 días de la semana para atender cualquier emergencia en su hogar o negocio.</p>
+<a href="#contacto" class="text-primary font-medium flex items-center">
+Llamar ahora <i class="ri-arrow-right-line ml-1"></i>
+</a>
+</div>
+</div>
+<!-- Proyectos Personalizados -->
+<div class="bg-white rounded-lg shadow-md overflow-hidden">
+<div class="h-48 bg-primary flex items-center justify-center">
+<i class="ri-draft-line text-white ri-4x"></i>
+</div>
+<div class="p-6">
+<div class="inline-block px-3 py-1 bg-green-100 text-green-600 text-sm font-medium rounded-full mb-4">A medida</div>
+<h3 class="text-xl font-bold mb-3">Proyectos Personalizados</h3>
+<p class="text-gray-600 mb-4">Diseñamos y ejecutamos su proyecto a medida, adaptándonos a sus necesidades y presupuesto.</p>
+<a href="#contacto" class="text-primary font-medium flex items-center">
+Solicitar presupuesto <i class="ri-arrow-right-line ml-1"></i>
+</a>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Administrative Services Section -->
+<section class="py-16 bg-white">
+<div class="container mx-auto px-4">
+<div class="text-center mb-12">
+<h2 class="text-3xl font-bold text-gray-800 mb-4">Servicios Administrativos</h2>
+<p class="text-gray-600 max-w-2xl mx-auto">Nos encargamos de toda la documentación necesaria para sus instalaciones y reformas.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<!-- Tramitación de Documentación -->
+<div class="bg-white p-6 rounded-lg border border-gray-200 shadow-sm">
+<div class="w-12 h-12 bg-blue-50 rounded-full flex items-center justify-center mb-4">
+<i class="ri-file-list-3-line text-primary ri-lg"></i>
+</div>
+<h3 class="text-lg font-semibold mb-3">Tramitación de Documentación</h3>
+<p class="text-gray-600">Gestionamos todos los permisos y licencias necesarios para su obra o instalación.</p>
+</div>
+<!-- Estudios de Eficiencia Energética -->
+<div class="bg-white p-6 rounded-lg border border-gray-200 shadow-sm">
+<div class="w-12 h-12 bg-blue-50 rounded-full flex items-center justify-center mb-4">
+<i class="ri-leaf-line text-primary ri-lg"></i>
+</div>
+<h3 class="text-lg font-semibold mb-3">Estudios de Eficiencia Energética</h3>
+<p class="text-gray-600">Análisis y certificados de eficiencia energética para mejorar el rendimiento de su hogar o negocio.</p>
+</div>
+<!-- Boletines y Certificados -->
+<div class="bg-white p-6 rounded-lg border border-gray-200 shadow-sm">
+<div class="w-12 h-12 bg-blue-50 rounded-full flex items-center justify-center mb-4">
+<i class="ri-file-paper-2-line text-primary ri-lg"></i>
+</div>
+<h3 class="text-lg font-semibold mb-3">Boletines y Certificados</h3>
+<p class="text-gray-600">Emisión de boletines eléctricos, certificados de gas y toda la documentación técnica necesaria.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- CTA Section -->
+<section class="py-16 bg-gray-50">
+<div class="container mx-auto px-4">
+<div class="bg-primary rounded-xl overflow-hidden shadow-xl">
+<div class="flex flex-col md:flex-row">
+<div class="md:w-1/2 p-8 md:p-12 flex flex-col justify-center">
+<h2 class="text-3xl font-bold text-white mb-4">¿Necesita un servicio urgente?</h2>
+<p class="text-white opacity-90 mb-6">Estamos disponibles las 24 horas para solucionar cualquier emergencia en su hogar o negocio.</p>
+<div class="flex flex-col sm:flex-row gap-4">
+<a href="tel:+34678893767" class="bg-white text-primary px-6 py-3 rounded-button font-medium whitespace-nowrap flex items-center justify-center">
+<i class="ri-phone-line mr-2"></i> Llamar ahora
+</a>
+<a href="https://wa.me/34678893767" class="bg-[#25D366] text-white px-6 py-3 rounded-button font-medium whitespace-nowrap flex items-center justify-center">
+<i class="ri-whatsapp-line mr-2"></i> WhatsApp
+</a>
+</div>
+</div>
+<div class="md:w-1/2 bg-cover bg-center" style="background-image: url('https://readdy.ai/api/search-image?query=professional%20plumber%20and%20electrician%20working%20together%20on%20a%20home%20repair%2C%20tools%2C%20modern%20equipment%2C%20bright%20lighting%2C%20professional%20setting%2C%20high%20quality%20image&width=600&height=400&seq=1&orientation=landscape');">
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Contact Section -->
+<section id="contacto" class="py-16 bg-white">
+<div class="container mx-auto px-4">
+<div class="text-center mb-12">
+<h2 class="text-3xl font-bold text-gray-800 mb-4">Contacte con Nosotros</h2>
+<p class="text-gray-600 max-w-2xl mx-auto">Estamos a su disposición para cualquier consulta o presupuesto sin compromiso.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+<div>
+<form class="space-y-6">
+<div>
+<label for="name" class="block text-sm font-medium text-gray-700 mb-1">Nombre</label>
+<input type="text" id="name" class="w-full px-4 py-3 border border-gray-300 rounded focus:ring-2 focus:ring-primary/20" placeholder="Su nombre">
+</div>
+<div>
+<label for="email" class="block text-sm font-medium text-gray-700 mb-1">Email</label>
+<input type="email" id="email" class="w-full px-4 py-3 border border-gray-300 rounded focus:ring-2 focus:ring-primary/20" placeholder="Su email">
+</div>
+<div>
+<label for="phone" class="block text-sm font-medium text-gray-700 mb-1">Teléfono</label>
+<input type="tel" id="phone" class="w-full px-4 py-3 border border-gray-300 rounded focus:ring-2 focus:ring-primary/20" placeholder="Su teléfono">
+</div>
+<div>
+<label for="message" class="block text-sm font-medium text-gray-700 mb-1">Mensaje</label>
+<textarea id="message" rows="4" class="w-full px-4 py-3 border border-gray-300 rounded focus:ring-2 focus:ring-primary/20" placeholder="Describa su consulta o necesidad"></textarea>
+</div>
+<button type="submit" class="btn-primary px-8 py-3 rounded-button font-medium whitespace-nowrap w-full">Enviar mensaje</button>
+</form>
+</div>
+<div>
+<div class="bg-gray-50 p-8 rounded-lg">
+<h3 class="text-xl font-semibold mb-6">Información de Contacto</h3>
+<div class="space-y-6">
+<div class="flex items-start">
+<div class="w-10 h-10 bg-blue-50 rounded-full flex items-center justify-center mr-4 flex-shrink-0">
+<i class="ri-phone-line text-primary"></i>
+</div>
+<div>
+<h4 class="font-medium text-gray-800">Teléfono</h4>
+<p class="text-gray-600">+34 678 89 37 67</p>
+<p class="text-sm text-gray-500 mt-1">Disponible 24/7 para urgencias</p>
+</div>
+</div>
+<div class="flex items-start">
+<div class="w-10 h-10 bg-blue-50 rounded-full flex items-center justify-center mr-4 flex-shrink-0">
+<i class="ri-mail-line text-primary"></i>
+</div>
+<div>
+<h4 class="font-medium text-gray-800">Email</h4>
+<p class="text-gray-600">placi.m.c369@gmail.com</p>
+<p class="text-sm text-gray-500 mt-1">Respondemos en menos de 24 horas</p>
+</div>
+</div>
+<div class="flex items-start">
+<div class="w-10 h-10 bg-blue-50 rounded-full flex items-center justify-center mr-4 flex-shrink-0">
+<i class="ri-whatsapp-line text-primary"></i>
+</div>
+<div>
+<h4 class="font-medium text-gray-800">WhatsApp</h4>
+<p class="text-gray-600">+34 678 89 37 67</p>
+<p class="text-sm text-gray-500 mt-1">Respuesta rápida a sus consultas</p>
+</div>
+</div>
+<div class="flex items-start">
+<div class="w-10 h-10 bg-blue-50 rounded-full flex items-center justify-center mr-4 flex-shrink-0">
+<i class="ri-time-line text-primary"></i>
+</div>
+<div>
+<h4 class="font-medium text-gray-800">Horario</h4>
+<p class="text-gray-600">Lunes a Viernes: 8:00 - 20:00</p>
+<p class="text-sm text-gray-500 mt-1">Servicio de urgencias 24/7</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Fixed Contact Bar -->
+<div class="contact-bar fixed bottom-0 left-0 w-full shadow-lg z-50 py-3 px-4">
+<div class="container mx-auto flex justify-between items-center">
+<div class="hidden md:block">
+<p class="font-semibold text-gray-800">DOINCO.S & R</p>
+<p class="text-sm text-gray-600">Servicios profesionales para su hogar</p>
+</div>
+<div class="flex items-center gap-3 w-full md:w-auto justify-end">
+<a href="mailto:placi.m.c369@gmail.com" class="flex items-center justify-center w-10 h-10 bg-blue-50 text-primary rounded-full">
+<i class="ri-mail-line"></i>
+</a>
+<a href="tel:+34678893767" class="flex items-center justify-center gap-2 bg-primary text-white px-4 py-2 rounded-button whitespace-nowrap">
+<i class="ri-phone-line"></i>
+<span class="hidden sm:inline">+34 678 89 37 67</span>
+</a>
+<a href="https://wa.me/34678893767" class="flex items-center justify-center gap-2 bg-[#25D366] text-white px-4 py-2 rounded-button whitespace-nowrap">
+<i class="ri-whatsapp-line"></i>
+<span class="hidden sm:inline">WhatsApp</span>
+</a>
+</div>
+</div>
+</div>
+<!-- Footer -->
+<footer class="bg-gray-900 text-white pt-16 pb-24">
+<div class="container mx-auto px-4">
+<div class="flex flex-col md:flex-row justify-between mb-12">
+<div class="mb-8 md:mb-0">
+<h3 class="text-2xl font-['Pacifico'] mb-4">DOINCO.S & R</h3>
+<p class="text-gray-400 max-w-xs">Soluciones profesionales para instalaciones, reformas y reparaciones en su hogar o negocio.</p>
+</div>
+<div class="grid grid-cols-2 md:grid-cols-3 gap-8">
+<div>
+<h4 class="text-lg font-semibold mb-4">Servicios</h4>
+<ul class="space-y-2">
+<li><a href="#" class="text-gray-400 hover:text-white transition">Electricidad</a></li>
+<li><a href="#" class="text-gray-400 hover:text-white transition">Fontanería</a></li>
+<li><a href="#" class="text-gray-400 hover:text-white transition">Aire Acondicionado</a></li>
+<li><a href="#" class="text-gray-400 hover:text-white transition">Gas</a></li>
+<li><a href="#" class="text-gray-400 hover:text-white transition">Albañilería</a></li>
+</ul>
+</div>
+<div>
+<h4 class="text-lg font-semibold mb-4">Especialidades</h4>
+<ul class="space-y-2">
+<li><a href="#" class="text-gray-400 hover:text-white transition">Reformas de Baños</a></li>
+<li><a href="#" class="text-gray-400 hover:text-white transition">Siniestros</a></li>
+<li><a href="#" class="text-gray-400 hover:text-white transition">Urgencias 24/7</a></li>
+<li><a href="#" class="text-gray-400 hover:text-white transition">Proyectos Personalizados</a></li>
+</ul>
+</div>
+<div>
+<h4 class="text-lg font-semibold mb-4">Contacto</h4>
+<ul class="space-y-2">
+<li class="flex items-center">
+<i class="ri-phone-line mr-2 text-gray-400"></i>
+<span class="text-gray-400">+34 678 89 37 67</span>
+</li>
+<li class="flex items-center">
+<i class="ri-mail-line mr-2 text-gray-400"></i>
+<span class="text-gray-400">placi.m.c369@gmail.com</span>
+</li>
+<li class="flex items-center">
+<i class="ri-whatsapp-line mr-2 text-gray-400"></i>
+<span class="text-gray-400">WhatsApp</span>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="pt-8 border-t border-gray-800 text-center text-gray-500 text-sm">
+<p>&copy; 2025 DOINCO.S & R. Todos los derechos reservados.</p>
+</div>
+</div>
+</footer>
+<script id="formScript">
+document.addEventListener('DOMContentLoaded', function() {
+const form = document.querySelector('form');
+if (form) {
+form.addEventListener('submit', function(e) {
+e.preventDefault();
+const nameInput = document.getElementById('name');
+const emailInput = document.getElementById('email');
+const phoneInput = document.getElementById('phone');
+const messageInput = document.getElementById('message');
+// Simple validation
+let isValid = true;
+if (!nameInput.value.trim()) {
+nameInput.classList.add('border-red-500');
+isValid = false;
+} else {
+nameInput.classList.remove('border-red-500');
+}
+if (!emailInput.value.trim() || !emailInput.value.includes('@')) {
+emailInput.classList.add('border-red-500');
+isValid = false;
+} else {
+emailInput.classList.remove('border-red-500');
+}
+if (!phoneInput.value.trim()) {
+phoneInput.classList.add('border-red-500');
+isValid = false;
+} else {
+phoneInput.classList.remove('border-red-500');
+}
+if (!messageInput.value.trim()) {
+messageInput.classList.add('border-red-500');
+isValid = false;
+} else {
+messageInput.classList.remove('border-red-500');
+}
+if (isValid) {
+// Here you would typically send the form data to a server
+alert('Mensaje enviado correctamente. Nos pondremos en contacto con usted lo antes posible.');
+form.reset();
+} else {
+alert('Por favor, complete todos los campos correctamente.');
+}
+});
+}
+});
+</script>
+<script id="scrollScript">
+document.addEventListener('DOMContentLoaded', function() {
+// Smooth scroll for anchor links
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+anchor.addEventListener('click', function(e) {
+e.preventDefault();
+const targetId = this.getAttribute('href');
+if (targetId === '#') return;
+const targetElement = document.querySelector(targetId);
+if (targetElement) {
+window.scrollTo({
+top: targetElement.offsetTop - 80, // Offset for fixed header
+behavior: 'smooth'
+});
+}
+});
+});
+});
+</script>
+</body>
+</html>
